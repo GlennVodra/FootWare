@@ -1,0 +1,10 @@
+<div *ngIf="transaction">
+    <h2>Details</h2>
+    <p *ngFor="let shoe of transaction.shoes">
+        Id: {{shoe.id}}, Brand Name: {{shoe.brand}}, Name: {{shoe.name}}, Model: {{shoe.model}},
+        Color: {{shoe.color}}, Shoe Type: {{shoe.shoeType}}, Size: {{shoe.size}}, Price: {{shoe.price}}
+    </p>
+    <p>Total price: {{transaction.price}}</p>
+    <p>Transaction ID: {{transaction.id}}</p>
+    <button routerLink="/purchases">Back to purchases</button>
+</div>

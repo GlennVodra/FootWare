@@ -1,0 +1,45 @@
+<div class="inventory-page">
+  <ul class="shoes">
+    <h2>Inventory</h2>
+    <li *ngFor="let shoe of shoes">
+      <a routerLink="/inventory/{{shoe.id}}">
+        <div class="shoe-name">
+          <span class="id"> {{shoe.id}} </span>
+          <span class="brand">{{shoe.brand}} </span>
+          <span class="name"> {{shoe.name}} </span> 
+          <span class="model">{{shoe.model}} </span>
+          <span class="price">${{shoe.price}} </span>
+        </div>
+      </a>
+      <button type="button" class="delete" title="delete shoe" *ngIf="adminLoggedIn()"
+        (click)="deleteShoe(shoe)">x</button>
+    </li>
+  </ul>
+
+  <div class= "inventory" *ngIf="adminLoggedIn()">
+    <h2>Create a new Shoe</h2>
+    <label for="new-shoe-id">Shoe ID</label>
+    <input id="new-shoe-id" #shoeID/> 
+    <label for="new-shoe-brand">Shoe brand</label>
+    <input id="new-shoe-brand" #shoeBrand/> 
+    <label for="new-shoe-name">Shoe name</label>
+    <input id="new-shoe-name" #shoeName/> 
+    <label for="new-shoe-model">Shoe model</label>
+    <input id="new-shoe-model" type="number" #shoeModel/> 
+    <label for="new-shoe-color">Shoe color</label>
+    <input id="new-shoe-color" #shoeColor/> 
+    <label for="new-shoe-shoeType">Shoe shoeType</label>
+    <input id="new-shoe-shoeType" #shoeShoeType/> 
+    <label for="new-shoe-size">Shoe size</label>
+    <input id="new-shoe-size" type="number" #shoeSize/> 
+    <label for="new-shoe-price">Shoe price</label>
+    <input id="new-shoe-price" type="number" #shoePrice/> 
+    <label for="new-shoe-quantity">Shoe quantity</label>
+    <input id="new-shoe-quantity" type="number" #shoeQuantity/> 
+
+    <button type="button" class="add-button" 
+    (click)="createShoe(shoeID.value, shoeBrand.value ,shoeName.value, shoeModel.value, shoeColor.value, shoeShoeType.value, shoeSize.value, shoePrice.value, shoeQuantity.value);">
+      Create Shoe
+    </button>
+  </div>
+</div>

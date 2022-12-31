@@ -1,0 +1,12 @@
+ <div id="search-component"  class="search-component">
+    <!--<label for="search-box">Inventory Search</label>-->
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="Search Inventory"/>
+  
+    <ul class="search-result">
+      <li *ngFor="let shoe of shoes$ | async" >
+        <a routerLink="/inventory/{{shoe.id}}" type="button" (click)="reloadPage()">
+          {{shoe.name}}
+        </a>
+      </li>
+    </ul>
+  </div>

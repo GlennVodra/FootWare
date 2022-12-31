@@ -1,0 +1,13 @@
+<div *ngIf="shoe">
+
+  <h2>{{shoe.brand | uppercase}} {{shoe.name | uppercase}} {{shoe.model}}s' Details</h2>
+  <div>Id: {{shoe.id}}, Brand Name: {{shoe.brand}}, Name: {{shoe.name}}, model: {{shoe.model}} <br> <br> </div>
+  <div>Color: {{shoe.color}}, Shoe Type: {{shoe.shoeType}}, Size: {{shoe.size}},
+    Price: {{shoe.price}}, Quantity: {{shoe.quantity}} <br> <br>
+  </div>
+
+  <button type="button" (click)="goBack()">go back</button>
+  <button type="button" (click)="addToCart(shoe)" *ngIf="isAccountDefined() && !adminLoggedIn()">
+    add to cart</button>
+
+</div>

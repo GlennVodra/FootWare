@@ -1,0 +1,11 @@
+<div class="Purchases">
+  <ul class="transactions">
+    <h2 *ngIf="!isAdmin(); else adminOnly">Transactions</h2>
+    <li *ngFor="let transaction of transactions">
+      <button routerLink="/purchases/{{transaction.id}}">{{transaction.id}}</button>
+    </li>
+    <ng-template #adminOnly>
+      <h2>All Transactions</h2>
+    </ng-template>
+  </ul>
+</div>

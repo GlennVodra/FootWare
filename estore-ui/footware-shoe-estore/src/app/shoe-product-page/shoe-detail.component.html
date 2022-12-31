@@ -1,0 +1,25 @@
+<div *ngIf="shoe">
+
+  <h2>{{shoe.brand | uppercase}} {{shoe.name | uppercase}} {{shoe.model}}s' Details</h2>
+  <div>Id: {{shoe.id}}, Brand Name: {{shoe.brand}}, Name: {{shoe.name}}, model: {{shoe.model}} <br> <br> </div>
+  <div>Color: {{shoe.color}}, Shoe Type: {{shoe.shoeType}}, Size: {{shoe.size}},
+    Price: {{shoe.price}}, Quantity: {{shoe?.quantity}} <br> <br>
+  </div>
+  <button type="button" (click)="addToCart(shoe)" *ngIf="isAccountDefined() && !adminLoggedIn()">
+    add to cart</button>
+  <button type="button" (click)="addToWishlist(shoe)" *ngIf="isAccountDefined() && !adminLoggedIn()">
+    add to wishlist</button>
+  <div class="admin-privallges" *ngIf="adminLoggedIn()">
+    <div>
+      <label for="Product Price">Product Price: </label>
+      <input id="product-price" type="number" [(ngModel)]="shoe.price" placeholder="90">
+    </div>
+    <div>
+      <label for="Product Quantity">Product Quantity: </label>
+      <input id="product-quantity" type="number" [(ngModel)]="shoe.quantity" placeholder="10">
+    </div>
+    <button type="button" (click)="save()">save changes</button>
+
+
+  </div>
+  <button type="button" (click)="goBack()">go back</button>

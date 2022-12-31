@@ -1,0 +1,17 @@
+<div class="Wishlist">
+    <ul class="shoes">
+      <h2>Wishlist</h2>
+      <li *ngFor="let shoe of shoes">
+        <a routerLink="/wishlist/{{shoe.id}}">
+          <div class="shoe-name">
+            <span class="id"> {{shoe.id}} </span>
+            <span class="brand">{{shoe.brand}} </span>
+            <span class="name"> {{shoe.name}} </span>
+            <span class="model">{{shoe.model}} </span>
+            <span class="price">${{shoe.price}} </span>
+          </div>
+        </a>
+        <button type="button" class="delete" title="delete shoe" (click)="deleteShoe(shoe)">x</button>
+      </li>
+    </ul>
+  </div>
